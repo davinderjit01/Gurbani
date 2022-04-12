@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:gurbani_project/theme/style.dart';
 
@@ -11,17 +8,17 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-  Future<String>getData() async {
-    var response = await http.get(
-        Uri.encodeFull("https://api.gurbaninow.com/"),
-        headers: {
-          "Accept": "application/json"
-        }
-    );
-    print("BODY");
-    print(response.body);
-  }
+  //
+  // Future<String>getData() async {
+  //   var response = await http.get(
+  //       Uri.encodeFull("https://api.gurbaninow.com/"),
+  //       headers: {
+  //         "Accept": "application/json"
+  //       }
+  //   );
+  //   print("BODY");
+  //   print(response.body);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +32,36 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Widget _body(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final height = MediaQuery.of(context).size.height;
 
-    return Center(
-            child: Text("hello", style: theme.textTheme.headline1)
-          );
+    return Column(
+        children: [
+          Center(
+            child: Image.asset('assets/images/Sri-Harmandir-Sahib.png',
+              height: height / 2,
+            ),
+          ),
+          Text('ਸਭਨਾ ਜੀਆ ਕਾ ਇਕੁ ਦਾਤਾ ਸੋ ਮੈ ਵਿਸਰਿ ਨ ਜਾਈ ॥ ~ There is only the One, the Giver of all souls. May I never forget Him!',
+              style: theme.textTheme.headline6.copyWith(
+                  color: Colors.blueGrey
+              ),
+          ),
+          SizedBox(height: 50),
+          ElevatedButton(
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
+            onPressed: () {
+              Navigator.pushNamed(context, '/second');
+              },
+            child: Text('Get Started'),
+          )
+
+        ]
+
+
+    );
+
 
   }
 
 
 }
-
-// ElevatedButton(
-// onPressed: getData,
-// child: Text('Hello'),
-// )
