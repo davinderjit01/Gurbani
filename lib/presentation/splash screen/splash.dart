@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:gurbani_project/theme/style.dart';
 
 
@@ -8,10 +9,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  //
+
   // Future<String>getData() async {
   //   var response = await http.get(
-  //       Uri.encodeFull("https://api.gurbaninow.com/"),
+  //       Uri.encodeFull("https://api.gurbaninow.com/v2/banis/1"),
   //       headers: {
   //         "Accept": "application/json"
   //       }

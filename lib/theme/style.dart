@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 //padding
-const double kDefaultPadding = 20.0;
+const double kDefaultPadding = 10.0;
 
 // ignore: long-method
 ThemeData appTheme() {
