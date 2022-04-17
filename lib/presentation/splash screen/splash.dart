@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:gurbani_project/data/datasources/api.dart';
 import 'package:gurbani_project/theme/style.dart';
 
 
@@ -10,20 +10,9 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
-  // Future<String>getData() async {
-  //   var response = await http.get(
-  //       Uri.encodeFull("https://api.gurbaninow.com/v2/banis/1"),
-  //       headers: {
-  //         "Accept": "application/json"
-  //       }
-  //   );
-  //   print("BODY");
-  //   print(response.body);
-  // }
-
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(kDefaultPadding),
         child: _body(context),
@@ -51,18 +40,11 @@ class _SplashScreenState extends State<SplashScreen> {
           ElevatedButton(
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.blue)),
             onPressed: () {
-              Navigator.pushNamed(context, '/second');
+              Navigator.pushNamed(context, '/home');
               },
             child: Text('Get Started'),
           )
-
         ]
-
-
     );
-
-
   }
-
-
 }
