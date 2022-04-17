@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gurbani_project/data/datasources/api.dart';
 import 'package:gurbani_project/presentation/data.dart';
 import 'package:gurbani_project/theme/style.dart';
 
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage> {
           ListTile(
             title: const Text('Japji Sahib'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/bani');
             },
           ),
           ListTile(
@@ -87,7 +88,8 @@ class _HomePageState extends State<HomePage> {
         return InkWell(
           onTap: (){
             //passed particular id to description page
-            Navigator.pushNamed(context, '/third', arguments: tenGurus[index]);
+            Navigator.pushNamed(context, '/description', arguments: tenGurus[index]);
+
           },
           child: Padding(
             padding: EdgeInsets.only(bottom: 20.0),
